@@ -4,7 +4,7 @@
 #include <string.h>
 #include "animal.h"
 
-Animal saisir_animal() {
+Animal saisirAnimal() {
     Animal a;
 
     printf("Nom : ");
@@ -30,7 +30,7 @@ Animal saisir_animal() {
     return a;
 }
 
-void afficher_animal(Animal a) {
+void afficherAnimal(Animal a) {
     printf("ID : %d\n", a.id);
     printf("Nom : %s\n", a.nom);
     printf("Espece : %s\n", a.espece);
@@ -42,7 +42,7 @@ void afficher_animal(Animal a) {
     }
 }
 
-int age_animal(Animal a, int annee_actuelle) {
+int ageAnimal(Animal a, int annee_actuelle) {
     return annee_actuelle - a.annee_naissance;
 }
 

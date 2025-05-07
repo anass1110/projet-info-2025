@@ -4,7 +4,7 @@
 #include "animal.h"
 #include "gestion_fichier.h"
 #include "interface.h"
-#include "stats.h"
+#include "variantes.h"
 
 
 int main() {
