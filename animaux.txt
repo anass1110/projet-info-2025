@@ -1,5 +1,8 @@
-1;Rex;chien;2018;25.0;Chien tres affectueux
-2;Mia;chat;2021;4.5;Dort toute la journee
-3;Nemo;hamster;2023;0.1;Petit mais rapide
-4;Oscar;autruche;2015;120.0;Observe les visiteurs
-5;Luna;chien;2020;18.2;Adore courir dehors
+1 Naj chien 2018 25.00 aboie énormément mais ne mords pas
+2 Tenzin chat 2021 4.50 Mange toute la journee
+3 Naimoz hamster 2023 0.10 ne perds pas le nord à condorcet
+4 Qays autruche 2015 120.00 Observe les proies
+5 Zakaria chien 2020 18.20 Adore se reproduire avec des inconnus
+6 Aya Bonhomme 2006 120.00 Possède plusieurs rp, 92i, bonhomme etc...
+7 Aya chat 2006 120.00 92i
+8 amd chat 2006 10.00 92i

@@ -1,5 +1,3 @@
 {
-    "files.associations": {
-        "animal.h": "c"
-    }
+    "makefile.configureOnOpen": false
 }

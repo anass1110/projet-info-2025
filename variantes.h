@@ -2,7 +2,6 @@
 
 #ifndef VARIANTES_H
 #define VARIANTES_H
-
 #include "animal.h"
 
 void afficherTranchesAge(Animal *animaux, int nb);

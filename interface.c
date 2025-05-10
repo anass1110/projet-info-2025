@@ -5,26 +5,36 @@
 #include "gestion_fichier.h"
 #include "couleurs.h"
 
-void titreMenu(char* titre) {
-    clrscr(); // Efface l’écran
+void titreMenu(char* titre) 
+{
+    clrscr(); // Efface l’écran et défini dans couleurs.h
     printf(FOND_JAUNE TITRE "🐾 %s 🐾\n" REINIT, titre);
 }
 
-void afficherErreur(char* message) {
+void afficherErreur(char* message) 
+{
     printf(ERREUR "❌ Erreur : %s\n" REINIT, message);
 }
 
-void afficherSucces(char* message) {
+void afficherSucces(char* message) 
+{
     printf(SUCCES "✅ Succès : %s\n" REINIT, message);
 }
 
-void SauterLigne() {
+void SauterLigne() 
+{
     printf("\n"); // simple saut de ligne
 }
 
-void afficherMenu() {
-    titreMenu("ChenYl-Tech - Menu Principal");
+void pauseAvantRetour() {
+    printf("\nAppuyez sur Entrée pour continuer...");
+    getchar(); getchar(); 
+}
 
+
+void afficherMenu() 
+{
+    titreMenu("ChenYl-Tech - Menu Principal");
     printf(SOUSTITRE "Que souhaitez-vous faire ?\n" REINIT);
     printf("1. Ajouter un animal 🐶\n");
     printf("2. Rechercher un animal 🔍\n");
@@ -33,51 +43,63 @@ void afficherMenu() {
     printf("5. Afficher l’inventaire par âge 📊\n");
     printf("6. Calculer la nourriture quotidienne 🍖\n");
     printf("0. Quitter ❎\n");
-
     SauterLigne();
     printf("Votre choix : ");
 }
 
-void executer_commande(int choix, Animal *animaux, int *nb) {
+void executerCommande(int choix, Animal *animaux, int *nb) 
+{
     int id;
-
-    if (choix == 1) {
-        if (*nb >= MAX_ANIMAUX) {
+    if (choix == 1){
+        if (*nb >= MAX_ANIMAUX){
             afficherErreur("Refuge plein !");
-        } else {
+        } 
+        else{
             animaux[*nb] = saisirAnimal();
-            animaux[*nb].id = generer_prochain_id(animaux, *nb);
+            animaux[*nb].id = nvID(animaux, *nb);
             (*nb)++;
             afficherSucces("Animal ajouté !");
         }
+        
 
-    } else if (choix == 2) {
-        rechercher_animaux(animaux, *nb);
+    } 
 
-    } else if (choix == 3) {
+    else if (choix == 2){
+        rechercherAnimaux(animaux, *nb);
+        pauseAvantRetour();
+
+    } 
+
+    else if (choix == 3) {
         printf("ID de l'animal à supprimer : ");
         scanf("%d", &id);
-        if (supprimer_animal_par_id(animaux, nb, id)) {
+        if (supprimerAnimalID(animaux, nb, id)){
             afficherSucces("Animal supprimé !");
-        } else {
+        } 
+        else {
             afficherErreur("Animal non trouvé !");
         }
 
-    } else if (choix == 4) {
-        sauvegarder_animaux(animaux, *nb);
+        pauseAvantRetour();
+
+    }
+    else if (choix == 4){
+        sauvegarderAnimaux(animaux, *nb);
         afficherSucces("Données sauvegardées !");
-
-    } else if (choix == 5) {
+        pauseAvantRetour();
+    } 
+    else if (choix == 5){
         afficherTranchesAge(animaux, *nb);
-
-    } else if (choix == 6) {
+        pauseAvantRetour();
+    } 
+    else if (choix == 6) {
         afficher_NourritureJournaliere(animaux, *nb);
-
-    } else if (choix == 0) {
-        printf(INFO "Fermeture du programme. À bientôt ! 👋\n" REINIT);
-
-    } else {
+        pauseAvantRetour();
+    } 
+    else if (choix == 0){
+        printf(INFO "Fermeture du programme. À bientôt !\n" REINIT);
+    } 
+    else{
         afficherErreur("Option non reconnue.");
     }
 }
-
