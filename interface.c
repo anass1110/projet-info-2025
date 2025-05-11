@@ -10,7 +10,7 @@
 void titreMenu(char* titre) 
 {
     clrscr(); // Efface l’écran et défini dans couleurs.h
-    printf(FOND_JAUNE TITRE "🐾 %s 🐾\n" REINIT, titre);
+    printf(TITRE "🐾 %s 🐾\n" REINIT, titre);
 }
 
 void afficherErreur(char* message) 
