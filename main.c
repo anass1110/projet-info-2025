@@ -9,15 +9,12 @@ int main() {
     Animal animaux[MAX_ANIMAUX];
     int nb = chargerAnimaux(animaux, MAX_ANIMAUX);
     int choix;
-
-    afficherBienvenue(); // ✅ Affiche le chien de bienvenue au démarrage
+    afficherBienvenue(); //Affiche le chien de bienvenue au démarrage
 
     do {
         afficherMenu();
-
         char ligne[100];
         fgets(ligne, sizeof(ligne), stdin);
-
         if (ligne[0] == '\n') continue;
 
         int valide = 1;
@@ -26,16 +23,13 @@ int main() {
                 valide = 0;
             }
         }
-
         if (!valide) {
             afficherErreur("Merci de taper un nombre pour votre choix.");
             pauseAvantRetour();
             continue;
         }
-
         choix = atoi(ligne);
         executerCommande(choix, animaux, &nb);
-
     } while (choix != 0);
 
     return 0;
