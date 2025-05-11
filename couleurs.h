@@ -1,46 +1,26 @@
 #ifndef COULEURS_H
 #define COULEURS_H
-#include <stdio.h>
 
-// Effacement écran comme dans le tuto du pdf
-#define clrscr() printf("\033[2J\033[H")
+// Nettoyage écran
+#define clrscr() printf("\033[H\033[2J")
 
-// Couleur texte 
-#define TXT_NOIR    "\033[30m"
-#define TXT_ROUGE   "\033[31m"
-#define TXT_VERT    "\033[32m"
-#define TXT_JAUNE   "\033[33m"
-#define TXT_BLEU    "\033[34m"
-#define TXT_MAGENTA "\033[35m"
-#define TXT_CYAN    "\033[36m"
-#define TXT_BLANC   "\033[37m"
+// Styles de texte
+#define GRAS "\033[1m"
+#define CLIGNOTANT "\033[5m"
 
-// Couleur fond 
-#define FOND_NOIR    "\033[40m"
-#define FOND_ROUGE   "\033[41m"
-#define FOND_VERT    "\033[42m"
-#define FOND_JAUNE   "\033[43m"
-#define FOND_BLEU    "\033[44m"
-#define FOND_MAGENTA "\033[45m"
-#define FOND_CYAN    "\033[46m"
-#define FOND_BLANC   "\033[47m"
+// Couleurs du texte
+#define TITRE "\033[1;34m"     // Bleu clair (menu principal)
+#define INFO "\033[1;37m"      // Texte informatif blanc
+#define ERREUR "\033[1;31m"    // Rouge pour les erreurs
+#define SUCCES "\033[1;32m"    // Vert pour les succès
+#define IMPORTANT "\033[1;33m" // Jaune pour les avertissements
+#define SOUSTITRE "\033[1;36m" // Cyan clair (sous-titres)
 
-// Spécial 
-#define GRAS         "\033[1m"
-#define SOULIGNE     "\033[4m"
-#define CLIGNOTANT   "\033[5m"
-#define INVERSE      "\033[7m"
-#define REINIT       "\033[0m"
-
-// Couleur personnalisé
-#define TITRE      TXT_BLEU GRAS
-#define SOUSTITRE  TXT_VERT
-#define IMPORTANT  TXT_JAUNE GRAS
-#define ERREUR     TXT_ROUGE GRAS
-#define SUCCES     TXT_VERT GRAS
-#define INFO       TXT_CYAN
+// Réinitialisation
+#define REINIT "\033[0m"
 
 #endif
+
 
 // Les gars j'ai mis bleu pr les titres, vert pour les ajouts ou les succès etc, 
 //jaune pour les stats les avertissements etc et rouge pr les erreurs
