@@ -17,6 +17,5 @@ int ageAnimal(Animal a, int annee_actuelle); //calculer l'age avec l'anné de na
 int nvID(Animal *animaux, int nb);
 void mettreEnMinuscules(char *chaine);
 void rechercherAnimaux(Animal *animaux, int nb); // rechercher un animal dans le jeu et la base de donnés 
-int motValide(char *mot);
 
 #endif

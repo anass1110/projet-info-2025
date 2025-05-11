@@ -6,6 +6,7 @@
 #include "couleurs.h"
 #define MAX_INPUT 100
 
+void afficherBienvenue();
 void titreMenu(char* titre);
 void afficherErreur(char* message);
 void afficherSucces(char* message);

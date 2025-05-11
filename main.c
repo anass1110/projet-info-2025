@@ -1,24 +1,42 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "animal.h"
-#include "gestion_fichier.h"
 #include "interface.h"
+#include "gestion_fichier.h"
 #include "variantes.h"
 
-int main() 
-{
+int main() {
     Animal animaux[MAX_ANIMAUX];
-    int nbanimaux = 0;
-    int choix = -1;
+    int nb = chargerAnimaux(animaux, MAX_ANIMAUX);
+    int choix;
 
-    nbanimaux = chargerAnimaux(animaux, MAX_ANIMAUX); // Charger les animaux depuis un fichier
+    afficherBienvenue(); // ✅ Affiche le chien de bienvenue au démarrage
 
-    while (choix != 0) {  // continuer tant qu'on ne quitte pas
-        afficherMenu(); // afficher le menu principal
-        scanf("%d", &choix);
-        while (getchar() != '\n'); // 🔧 correction ici : vider le buffer après scanf
+    do {
+        afficherMenu();
 
-        executerCommande(choix, animaux, &nbanimaux); // exécuter ce que l'utilisateur a demandé 
-    }
+        char ligne[100];
+        fgets(ligne, sizeof(ligne), stdin);
+
+        if (ligne[0] == '\n') continue;
+
+        int valide = 1;
+        for (int i = 0; ligne[i] != '\0' && ligne[i] != '\n'; i++) {
+            if (ligne[i] < '0' || ligne[i] > '9') {
+                valide = 0;
+            }
+        }
+
+        if (!valide) {
+            afficherErreur("Merci de taper un nombre pour votre choix.");
+            pauseAvantRetour();
+            continue;
+        }
+
+        choix = atoi(ligne);
+        executerCommande(choix, animaux, &nb);
+
+    } while (choix != 0);
 
     return 0;
 }
